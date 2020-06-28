@@ -1,10 +1,11 @@
-package com.ff.annotation;
+package com.ff.common.annotations;
 
 
-import android.support.annotation.IdRes;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
+
+import androidx.annotation.IdRes;
 
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;

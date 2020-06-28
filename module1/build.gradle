@@ -27,6 +27,14 @@ android {
         }
     }
     resourcePrefix "module1_"   //前缀的名字
+
+    sourceSets {
+        main{
+            if(!router.isModule1DebugAble){
+                manifest.srcFile 'src/main/release/AndroidManifest.xml'
+            }
+        }
+    }
 }
 
 dependencies {

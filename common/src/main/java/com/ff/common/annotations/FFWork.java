@@ -1,4 +1,4 @@
-package com.ff.annotation;
+package com.ff.common.annotations;
 
 import android.app.Activity;
 import android.view.View;
@@ -20,7 +20,8 @@ public class FFWork {
             for (Field field : fields) {
                 boolean annotationPresent = field.isAnnotationPresent(FFView.class);
                 if (annotationPresent) {
-                    FFView annotation = field.getAnnotation(FFView.class);
+                    FFView annotation;
+                    annotation = field.getAnnotation(FFView.class);
                     if (annotation != null) {
                         int id = annotation.value();
                         if (view != null) {

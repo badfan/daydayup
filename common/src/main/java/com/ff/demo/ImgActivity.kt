@@ -1,9 +1,10 @@
-package com.ff.study
+package com.ff.demo
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import com.ff.annotation.FFWork
+import androidx.appcompat.app.AppCompatActivity
+import com.ff.common.R
+import com.ff.common.annotations.FFWork
 
 class ImgActivity : AppCompatActivity() {
 

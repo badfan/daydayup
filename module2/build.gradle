@@ -1,4 +1,4 @@
-if (router.isModule1DebugAble) {
+if (router.isModule2DebugAble) {
     apply plugin: 'com.android.application'
 } else {
     apply plugin: 'com.android.library'
@@ -7,7 +7,7 @@ android {
     compileSdkVersion cfgs.compileSdkVersion
 
     defaultConfig {
-        if (router.isModule1DebugAble) {
+        if (router.isModule2DebugAble) {
             applicationId "com.ff.module2"
         }
         minSdkVersion cfgs.minSdkVersion
@@ -24,6 +24,14 @@ android {
         }
     }
     resourcePrefix "module2_"   //前缀的名字
+
+    sourceSets {
+        main{
+            if(!router.isModule2DebugAble){
+                manifest.srcFile 'src/main/release/AndroidManifest.xml'
+            }
+        }
+    }
 }
 
 dependencies {

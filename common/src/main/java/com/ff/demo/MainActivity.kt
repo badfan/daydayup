@@ -1,4 +1,4 @@
-package com.ff.study
+package com.ff.demo
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.os.Handler
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.ff.common.R
 import com.ff.common.annotations.FFWork
 import com.ff.common.screenadapter.ScreenAdapter
 import kotlinx.android.synthetic.main.activity_main.*
@@ -21,10 +22,9 @@ class MainActivity : AppCompatActivity() {
         FFWork.inject(this)
         tv_content!!.text = "注解成功啦"
 
-        button.setOnClickListener(View.OnClickListener {
-//            startActivity(Intent(this, ImgActivity::class.java))
-        })
-
+        button.setOnClickListener {
+            startActivity(Intent(this, ImgActivity::class.java))
+        }
 
 
     }
