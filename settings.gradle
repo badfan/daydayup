@@ -1,0 +1,1 @@
+include ':app', ':startup', ':common', ':module1', 'module2'
