@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.ff.common.utils.LogUtils;
+
 
 public class FFStartupView extends LinearLayout {
 
@@ -40,7 +42,7 @@ public class FFStartupView extends LinearLayout {
         view = LayoutInflater.from(context).inflate(R.layout.startup, this, true);
         image = view.findViewById(R.id.image);
         tv_time = view.findViewById(R.id.tv_time);
-//        tv_time.setVisibility(View.GONE);
+        tv_time.setVisibility(View.GONE);
         tv_time.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,10 +75,12 @@ public class FFStartupView extends LinearLayout {
     };
 
     private void updateTime() {
+        LogUtils.log("countDown=" + countDown);
         tv_time.setText("跳过 " + countDown);
     }
 
     private void timmerOver() {
+        LogUtils.log("倒计时结束");
         isOver = true;
         if (mCallBack != null) {
             mCallBack.callBack();
@@ -97,12 +101,12 @@ public class FFStartupView extends LinearLayout {
 
     public FFStartupView setImgEngine(ImgEngine engine) {
         if (engine != null) {
-            engine.loadImg(image, new ImgLoadFinished() {
-                @Override
-                public void loadImgFinished() {
+            engine.loadImg(image, isNeedTimeCount -> {
+                LogUtils.log("开始倒计时");
+                if (isNeedTimeCount) {
                     tv_time.setVisibility(View.VISIBLE);
-                    FFStartupView.this.startTimmer();
                 }
+                startTimmer();
             });
         }
         return this;
@@ -122,6 +126,6 @@ public class FFStartupView extends LinearLayout {
     }
 
     public interface ImgLoadFinished {
-        void loadImgFinished();
+        void loadImgFinished(boolean isNeedTimeCount);
     }
 }
