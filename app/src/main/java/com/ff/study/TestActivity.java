@@ -4,8 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.ff.module1.Module1Activity;
 
 import java.lang.reflect.Field;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -17,36 +22,27 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+@Route(path = "/test/testactivity")
 public class TestActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_web);
-
-        WebView webView = findViewById(R.id.webView);
-
-        WebSettings webSettings = webView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
-        webSettings.setUseWideViewPort(true);
-        webSettings.setLoadWithOverviewMode(true);
-        webSettings.setSupportZoom(false);
-        webSettings.setDisplayZoomControls(false);
-        webSettings.setAllowFileAccess(true); // 允许访问文件
-        webSettings.setPluginState(WebSettings.PluginState.ON);
-
-        webView.loadUrl("https://dev2.verify.fc18.com.cn/snsh5/issue/home/homeIndex.html");
-
-        new Handler().postDelayed(new Runnable() {
+        setContentView(R.layout.activity_test);
+        ARouter.getInstance().inject(this);
+        findViewById(R.id.bt_module1).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
-                Intent intent = new Intent(TestActivity.this, MainActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
+            public void onClick(View v) {
+//                ARouter.getInstance().build("/module1/module1activity").navigation();
+                ARouter.getInstance().build("/module1/module1activity").navigation();
             }
-        }, 5000);
+        });
+        findViewById(R.id.bt_module2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ARouter.getInstance().build("/module2/module2activity").navigation();
+            }
+        });
 
-//        webView.loadUrl("https://www.baidu.com");
     }
 
     private void test() {

@@ -1,6 +1,6 @@
 ext {
     router = [
-            isModule1DebugAble: true,
+            isModule1DebugAble: false,
             isModule2DebugAble: true
     ]
 }

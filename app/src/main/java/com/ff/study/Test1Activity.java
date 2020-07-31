@@ -1,4 +1,4 @@
-package com.ff.module1;
+package com.ff.study;
 
 import android.os.Bundle;
 
@@ -8,8 +8,8 @@ import com.ff.module2.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-@Route(path = "/module1/module1activity")
-public class Module1Activity extends AppCompatActivity {
+@Route(path = "/test/testactivity")
+public class Test1Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

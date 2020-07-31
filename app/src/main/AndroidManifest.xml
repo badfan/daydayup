@@ -42,7 +42,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.ff.study.ImgActivity" />
+        <activity android:name="com.ff.study.Test1Activity" />
         <activity android:name="com.ff.study.MainActivity" />
     </application>
 

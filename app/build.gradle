@@ -49,10 +49,11 @@ dependencies {
     testImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.2'
     implementation "androidx.appcompat:appcompat:${cfgs.version_appcompat}"
     implementation project(':common')
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
     if (!router.isModule1DebugAble) {
         implementation project(':module1')
     }
-    if (!router.isModule1DebugAble) {
+    if (!router.isModule2DebugAble) {
         implementation project(':module2')
     }
 }

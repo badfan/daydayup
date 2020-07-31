@@ -6,7 +6,7 @@ public class LogUtils {
 
     static String TAG = "callback";
 
-    private static boolean isLog = true;
+    public static boolean isLog = true;
     private static int LOG_MAXLENGTH = 50000;
 
 
