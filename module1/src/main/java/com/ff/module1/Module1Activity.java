@@ -1,5 +1,6 @@
 package com.ff.module1;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -16,5 +17,10 @@ public class Module1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_module1);
         ARouter.getInstance().inject(this);
+    }
+
+    public void test() {
+//        Intent intent = new Intent();
+//        intent.setClassName()
     }
 }

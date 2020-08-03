@@ -7,9 +7,11 @@ import android.util.Log;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.ff.common.arouter.ARouterService;
 import com.ff.module1.Module1Activity;
 
 import java.lang.reflect.Field;
@@ -22,6 +24,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 @Route(path = "/test/testactivity")
 public class TestActivity extends AppCompatActivity {
     @Override
@@ -34,6 +37,8 @@ public class TestActivity extends AppCompatActivity {
             public void onClick(View v) {
 //                ARouter.getInstance().build("/module1/module1activity").navigation();
                 ARouter.getInstance().build("/module1/module1activity").navigation();
+                String sayHello = ARouterService.getModule1Provider().sayHello("你好啊");
+                Toast.makeText(TestActivity.this, sayHello, Toast.LENGTH_SHORT).show();
             }
         });
         findViewById(R.id.bt_module2).setOnClickListener(new View.OnClickListener() {
@@ -42,7 +47,7 @@ public class TestActivity extends AppCompatActivity {
                 ARouter.getInstance().build("/module2/module2activity").navigation();
             }
         });
-
+        ARouterService.getModule1Provider().sayHello("hello");
     }
 
     private void test() {
