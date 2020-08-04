@@ -14,6 +14,8 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.ff.common.arouter.ARouterService;
 import com.ff.module1.Module1Activity;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.lang.reflect.Field;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.CountDownLatch;
@@ -39,6 +41,14 @@ public class TestActivity extends AppCompatActivity {
                 ARouter.getInstance().build("/module1/module1activity").navigation();
                 String sayHello = ARouterService.getModule1Provider().sayHello("你好啊");
                 Toast.makeText(TestActivity.this, sayHello, Toast.LENGTH_SHORT).show();
+
+                EventBus.getDefault().post("msg1");
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        EventBus.getDefault().post("msg2");
+                    }
+                }).start();
             }
         });
         findViewById(R.id.bt_module2).setOnClickListener(new View.OnClickListener() {
