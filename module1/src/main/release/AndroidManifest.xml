@@ -3,7 +3,8 @@
     package="com.ff.module2">
 
     <application>
-        <activity android:name="com.ff.module1.Module1Activity" />
+        <activity android:name="com.ff.module1.Module1Activity"
+            android:windowSoftInputMode="adjustResize"/>
 
     </application>
 

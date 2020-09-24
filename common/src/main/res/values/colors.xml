@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="app_style">#981E0A</color>
+
+    <!--字体颜色-->
+    <color name="tv_black_deep">#151515</color>
+    <!--<color name="tv_black">#202020</color>-->
+    <color name="tv_black">#202020</color>
+    <color name="tv_black_light">#333333</color>
+    <color name="tv_white">#FFFFFF</color>
+    <color name="tv_gray">#666666</color>
+    <color name="tv_gray1">#666666</color>
+    <color name="tv_gray_light">#A4ABAE</color>
+    <color name="tv_blue">#0285FF</color>
+    <color name="tv_red">#A40001</color>
+    <color name="tv_red_light">#ccAD0000</color>
+
+    <color name="bg_color">#EEF0F2</color>
+    <color name="bg_black">#282828</color>
+    <color name="bg_white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="red">#FF0000</color>
+    <color name="black_tran">#88000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="gray">#868686</color>
+    <color name="gray_title">#F8F8F8</color>
+    <color name="gray_light">#EDEDED</color>
+    <color name="gray_lighter">#D7D7D7</color>
+    <color name="xt_qhui">#ebf5ff</color>
+    <color name="gray_trans">#99dddddd</color>
+    <color name="blue">#0286FF</color>
+    <color name="blue_light">#537FB0</color>
+    <color name="deepblue">#2F4C62</color>
+    <color name="green">#36CCAE</color>
+    <color name="yellow">#fdaa06</color>
+    <color name="red_light">#F994AB</color>
+    <color name="white">#FFFFFF</color>
+    <color name="tabbg">#11687181</color>
+    <color name="white_light">#99FFFFFF</color>
+    <color name="orange">#632900</color>
+    <color name="orange_light">#9D6C3C</color>
+
+
+    //标题栏颜色
+    <color name="status_color">#ffffff</color>
+    <color name="title_color">#ffffff</color>
+
+    //首页底部文字颜色
+    <color name="home_normal">#868686</color>
+    <color name="home_checked">#FF6A44</color>
+    //渐变
+    <color name="startColor">#FF6A44</color>
+    <color name="centerColor">#FD9374</color>
+    <color name="endColor">#FBDDCC</color>
+
+    //升级
+    <color name="btn_blue_hover">#1E86E4</color>
+    <color name="line_btn">#BBBBBB</color>
+    <color name="btn_live">#5F6164</color>
+
+
+</resources>

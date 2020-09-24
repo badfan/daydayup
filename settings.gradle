@@ -1,1 +1,1 @@
-include ':app', ':startup', ':common', ':module1', 'module2'
+include ':app', ':startup', ':common', ':module1', ':softinput', 'module2',":media"

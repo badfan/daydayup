@@ -9,7 +9,7 @@ import com.ff.common.annotations.FFWork
 import com.ff.common.screenadapter.ScreenAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class AdapterActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

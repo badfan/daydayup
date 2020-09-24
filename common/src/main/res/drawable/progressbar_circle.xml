@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@android:id/background">
+        <animated-rotate
+            android:fromDegrees="0"
+            android:pivotX="50%"
+            android:pivotY="50%"
+            android:toDegrees="360">
+            <shape
+                android:innerRadius="30dp"
+                android:shape="ring"
+                android:thickness="3dp"
+                android:useLevel="false">
+                <solid android:color="@color/bg_color" />
+            </shape>
+        </animated-rotate>
+    </item>
+
+    <item android:id="@android:id/secondaryProgress">
+        <animated-rotate
+            android:fromDegrees="0"
+            android:pivotX="50%"
+            android:pivotY="50%"
+            android:toDegrees="360">
+            <shape
+                android:innerRadius="30dp"
+                android:shape="ring"
+                android:thickness="3dp"
+                android:useLevel="false">
+                <solid android:color="@color/orange" />
+                <!--<gradient-->
+                <!--android:angle="0"-->
+                <!--android:centerColor="#80ffb600"-->
+                <!--android:centerY="0.75"-->
+                <!--android:endColor="#a0ffcb00"-->
+                <!--android:startColor="#80ffd300" />-->
+            </shape>
+        </animated-rotate>
+    </item>
+
+    <item android:id="@android:id/progress">
+        <animated-rotate
+            android:fromDegrees="0"
+            android:pivotX="50%"
+            android:pivotY="50%"
+            android:toDegrees="360">
+            <shape
+                android:innerRadius="30dp"
+                android:shape="ring"
+                android:thickness="3dp"
+                android:useLevel="false">
+                <solid android:color="@color/orange" />
+                <!--<gradient-->
+                <!--android:centerColor="@color/centerColor"-->
+                <!--android:endColor="@color/endColor"-->
+                <!--android:startColor="@color/startColor"-->
+                <!--android:type="linear" />-->
+            </shape>
+        </animated-rotate>
+    </item>
+
+</layer-list>
