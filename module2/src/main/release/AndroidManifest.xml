@@ -4,6 +4,7 @@
 
     <application>
         <activity android:name="com.ff.module2.Module2Activity" />
+        <activity android:name="com.ff.module2.Module2HomeActivity" />
 
     </application>
 

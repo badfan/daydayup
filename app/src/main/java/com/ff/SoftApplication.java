@@ -16,12 +16,14 @@ import com.tencent.tinker.lib.tinker.Tinker;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.multidex.MultiDex;
 
 public class SoftApplication extends BaseApplication {
 
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
+        MultiDex.install(base);
         Beta.installTinker();
     }
 
@@ -31,7 +33,7 @@ public class SoftApplication extends BaseApplication {
         LeakCanary.install(this);
         ScreenAdapter.setup(this);
         initARouter();
-        Bugly.init(this, "bdd0e6b982", false);
+        Bugly.init(this, "bdd0e6b982", true);
     }
 
 

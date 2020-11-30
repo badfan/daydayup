@@ -1,6 +1,7 @@
 package com.ff.study;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -14,6 +15,9 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.ff.common.annotations.FFView;
 import com.ff.common.annotations.FFWork;
 import com.ff.common.arouter.ARouterService;
+import com.ff.common.arouter.module2.IModule2Path;
+import com.ff.mvvm.DemoActivity;
+import com.ff.study.databinding.ActivityTestBinding;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -28,56 +32,48 @@ import java.util.concurrent.TimeUnit;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ViewDataBinding;
 
-@Route(path = "/test/testactivity")
+@Route(path = "/test/mainactivity")
 public class MainActivity extends AppCompatActivity {
 
 
     @FFView(R.id.textView)
     static TextView textView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test);
+//        setContentView(R.layout.activity_test);
+        DataBindingUtil.setContentView(this, R.layout.activity_test);
         FFWork.inject(this);
         ARouter.getInstance().inject(this);
-        findViewById(R.id.bt_module1).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                ARouter.getInstance().build("/module1/module1activity").navigation();
-                ARouter.getInstance().build("/module1/module1activity").navigation();
-                String sayHello = ARouterService.getModule1Provider().sayHello("你好啊");
-                Toast.makeText(MainActivity.this, sayHello, Toast.LENGTH_SHORT).show();
-                textView.setText("module1:长度9");
-                EventBus.getDefault().post("msg1");
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        EventBus.getDefault().post("msg2");
-                    }
-                }).start();
-
-            }
-        });
-        findViewById(R.id.bt_module2).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                ARouter.getInstance().build("/module2/module2activity").navigation();
-                textView.setText("module2:长度9999999");
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(MainActivity.this, "postDelay", Toast.LENGTH_SHORT).show();
-
-                    }
-                }, 20000);
-
-                handler.sendMessageDelayed(new Message(), 10000);
-
-                new AlertDialog.Builder(MainActivity.this, R.style.dialog_style).setTitle("生命周期").setMessage("ssssssss").show();
-            }
-        });
         ARouterService.getModule1Provider().sayHello("hello");
+
+        hotFix();
+    }
+
+    public void onClickView(View view) {
+        switch (view.getId()) {
+            case R.id.bt_module1:
+                ARouter.getInstance().build("/module1/module1activity").navigation();
+                String msg1 = ARouterService.getModule1Provider().sayHello("我是module1");
+                break;
+            case R.id.bt_module2:
+                ARouter.getInstance().build("/module2/module2activity").navigation();
+                String msg2 = ARouterService.getModule1Provider().sayHello("我是module2");
+                break;
+            case R.id.bt_mvvm:
+//                ARouter.getInstance().build("/module2/module2homeactivity").navigation();
+                startActivity(new Intent(this,DemoActivity.class));
+                break;
+        }
+
+    }
+
+    public void hotFix() {
+        textView.setText("我是热更新,显示了代表成功1111111");
     }
 
     @Override

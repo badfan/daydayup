@@ -1,29 +1,14 @@
 package com.ff.module2;
 
-import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 
-import java.lang.ref.Reference;
-import java.lang.ref.ReferenceQueue;
-import java.lang.ref.WeakReference;
-import java.lang.reflect.Array;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Set;
-
 import androidx.appcompat.app.AppCompatActivity;
 
-@Route(path = "/module2/module2activity")
-public class Module2Activity extends AppCompatActivity {
+@Route(path = "/module2/module2homeactivity")
+public class Module2HomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

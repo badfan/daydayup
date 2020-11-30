@@ -16,7 +16,7 @@ android {
         versionCode cfgs.versionCode
         versionName cfgs.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        mutid
+        multiDexEnabled true
 
         javaCompileOptions {
             annotationProcessorOptions {
@@ -36,16 +36,24 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    dexOptions {
+        preDexLibraries = false
+    }
+
+    /*打开databinding功能*/
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
-    if (!router.isModule1DebugAble) {
+    if (!router.Module1Componentization) {
         implementation project(':module1')
     }
-    if (!router.isModule2DebugAble) {
+    if (!router.Module2Componentization) {
         implementation project(':module2')
     }
-
+    implementation project(':common')
 
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
@@ -56,11 +64,10 @@ dependencies {
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.2'
     testImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.2'
     implementation "androidx.appcompat:appcompat:${cfgs.version_appcompat}"
-    implementation project(':common')
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
-
+    implementation "com.android.support:multidex:1.0.1"
 //    //bugly 集成
-////    implementation 'com.tencent.bugly:crashreport:latest.release'//tinker中已经集成
+////    implementation 'com.tencent.bugly:crashreport:latest.release'//tinker中已经集成 common中
 //    implementation 'com.tencent.bugly:nativecrashreport:latest.release'//使用ndk的话仍要集成这个
 //
 //    //热更新

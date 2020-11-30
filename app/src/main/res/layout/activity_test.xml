@@ -1,35 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:orientation="vertical"
-    android:padding="10dp">
 
-    <Button
-        android:id="@+id/bt_module1"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+        <import type="com.ff.study.MainActivity" />
+
+        <variable
+            name="main"
+            type="MainActivity" />
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#66ccbb"
-        android:gravity="center"
-        android:padding="10dp"
-        android:text="module1"
-        android:textSize="16sp" />
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        android:padding="10dp">
 
-    <Button
-        android:id="@+id/bt_module2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:background="#66ccbb"
-        android:gravity="center"
-        android:padding="10dp"
-        android:text="module2"
-        android:textSize="16sp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView"/>
+        <Button
+            android:id="@+id/bt_module1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#66ccbb"
+            android:gravity="center"
+            android:onClick="onClickView"
+            android:padding="10dp"
+            android:text="module1"
+            android:textSize="16sp" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/bt_module2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="#66ccbb"
+            android:gravity="center"
+            android:onClick="onClickView"
+            android:padding="10dp"
+            android:text="module2"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/bt_mvvm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="#66ccbb"
+            android:gravity="center"
+            android:onClick="onClickView"
+            android:padding="10dp"
+            android:text="mvvm"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</layout>

@@ -1,4 +1,4 @@
-if (router.isModule1DebugAble) {
+if (router.Module1Componentization) {
     apply plugin: 'com.android.application'
 } else {
     apply plugin: 'com.android.library'
@@ -10,7 +10,7 @@ android {
 
 
     defaultConfig {
-        if (router.isModule1DebugAble) {
+        if (router.Module1Componentization) {
             applicationId "com.ff.module1"
         }
         minSdkVersion cfgs.minSdkVersion
@@ -34,7 +34,7 @@ android {
 
     sourceSets {
         main{
-            if(!router.isModule1DebugAble){
+            if(!router.Module1Componentization){
                 manifest.srcFile 'src/main/release/AndroidManifest.xml'
             }
         }
