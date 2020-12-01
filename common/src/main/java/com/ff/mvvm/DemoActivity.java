@@ -16,5 +16,11 @@ public class DemoActivity extends MVVMActivity {
     @Override
     public void initView() {
         getViewModel().showDialog();
+        getMainHandler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                getViewModel().dismissDialog();
+            }
+        }, 2000);
     }
 }

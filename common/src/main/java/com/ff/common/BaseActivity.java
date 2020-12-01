@@ -6,6 +6,8 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.WindowManager.BadTokenException;
@@ -28,6 +30,7 @@ public abstract class BaseActivity extends FragmentActivity {
     public boolean hasMenu;// 是否有菜单显示
     private CustomerDialog progressDialog;
     protected Resources resources;
+    protected Handler mainHandler = new Handler(Looper.getMainLooper());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +56,6 @@ public abstract class BaseActivity extends FragmentActivity {
         initView();
         LogUtils.log("onCreateEnd-" + getClass().getName());
     }
-
-
 
 
     public void setStatusBar() {
@@ -101,6 +102,12 @@ public abstract class BaseActivity extends FragmentActivity {
         return this;
     }
 
+    public Handler getMainHandler(){
+        if(mainHandler==null){
+            mainHandler = new Handler(Looper.getMainLooper());
+        }
+        return mainHandler;
+    }
 
     /**
      * 是否全屏和显示标题，true为全屏和无标题，false为无标题，请在setContentView()方法前调用
