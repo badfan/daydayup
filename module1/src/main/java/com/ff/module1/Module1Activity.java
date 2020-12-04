@@ -21,6 +21,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.alibaba.android.arouter.thread.DefaultThreadFactory;
 import com.ff.common.utils.LogUtils;
+import com.ff.commonconfig.CommonPath;
 import com.ff.module2.R;
 
 import org.greenrobot.eventbus.EventBus;
@@ -38,7 +39,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import dalvik.system.BaseDexClassLoader;
 import dalvik.system.PathClassLoader;
 
-@Route(path = "/module1/module1activity")
+@Route(path = CommonPath.MODULE1ACTIVITY)
 public class Module1Activity extends AppCompatActivity {
 
 

@@ -7,7 +7,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.ff.common.annotations.FFWork
 import com.ff.common.screenadapter.ScreenAdapter
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.act_adapter.*
 
 class AdapterActivity : AppCompatActivity() {
 
@@ -16,15 +16,9 @@ class AdapterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         ScreenAdapter.match(this, 720f, ScreenAdapter.MATCH_BASE_WIDTH)
 
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.act_adapter)
         FFWork.inject(this)
         tv_content!!.text = "注解成功啦"
-
-        button.setOnClickListener(View.OnClickListener {
-//            startActivity(Intent(this, ImgActivity::class.java))
-        })
-
-
 
     }
 

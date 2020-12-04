@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.ff.commonconfig.CommonPath;
 
 import java.lang.ref.Reference;
 import java.lang.ref.ReferenceQueue;
@@ -22,7 +23,7 @@ import java.util.Set;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-@Route(path = "/module2/module2activity")
+@Route(path = CommonPath.MODULE2ACTIVITY)
 public class Module2Activity extends AppCompatActivity {
 
     @Override

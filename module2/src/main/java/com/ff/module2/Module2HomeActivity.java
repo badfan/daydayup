@@ -4,10 +4,10 @@ import android.os.Bundle;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.ff.commonconfig.CommonPath;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-@Route(path = "/module2/module2homeactivity")
 public class Module2HomeActivity extends AppCompatActivity {
 
     @Override

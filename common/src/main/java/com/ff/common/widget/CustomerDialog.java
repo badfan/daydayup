@@ -1,4 +1,4 @@
-package com.widget;
+package com.ff.common.widget;
 
 import android.app.Dialog;
 import android.content.Context;

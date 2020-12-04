@@ -21,7 +21,7 @@ public class StatusUtils {
         ImmersionBar.with(act)
 //                .statusBarView(view)
                 .init();
-        setLightStatusBar(act,false);
+        setLightStatusBar(act,true);
     }
 
     public static void setLightStatusBar(Activity act, boolean isLight) {

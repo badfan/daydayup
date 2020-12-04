@@ -1,6 +1,7 @@
 ext {
     router = [
             Module1Componentization: false,
-            Module2Componentization: false
+            Module2Componentization: false,
+            WebComponentization: false
     ]
 }

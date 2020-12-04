@@ -14,9 +14,10 @@ import android.view.WindowManager.BadTokenException;
 import android.widget.Toast;
 
 
+import com.ff.common.utils.LogUtil;
 import com.ff.common.utils.LogUtils;
 import com.ff.common.utils.StatusUtils;
-import com.widget.CustomerDialog;
+import com.ff.common.widget.CustomerDialog;
 
 import java.lang.reflect.Field;
 
@@ -91,7 +92,9 @@ public abstract class BaseActivity extends FragmentActivity {
     /**
      * 初始化binding,viewmodel
      */
-    protected abstract void initBinding();
+    protected void initBinding(){
+        LogUtil.log("mvvm架构使用");
+    }
 
     /**
      * 实例化布局文件/组件
@@ -102,8 +105,8 @@ public abstract class BaseActivity extends FragmentActivity {
         return this;
     }
 
-    public Handler getMainHandler(){
-        if(mainHandler==null){
+    public Handler getMainHandler() {
+        if (mainHandler == null) {
             mainHandler = new Handler(Looper.getMainLooper());
         }
         return mainHandler;

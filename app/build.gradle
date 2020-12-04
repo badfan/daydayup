@@ -53,6 +53,7 @@ dependencies {
     if (!router.Module2Componentization) {
         implementation project(':module2')
     }
+    runtimeOnly project(':web')
     implementation project(':common')
 
     implementation fileTree(include: ['*.jar'], dir: 'libs')

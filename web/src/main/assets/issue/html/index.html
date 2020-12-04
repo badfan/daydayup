@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+
+<canvas id="myCanvas" width="200" height="200" style="border:1px solid #c3c3c3;">
+    Your browser does not support the canvas element.
+</canvas>
+
+<script type="text/javascript">
+window.onload=function(){
+var c=document.getElementById("myCanvas");
+var cxt=c.getContext("2d");
+<!--cxt.moveTo(10,10);-->
+<!--cxt.lineTo(100,100);-->
+
+cxt.stroke();
+var img=new Image()
+img.src="https://images2017.cnblogs.com/blog/1128668/201712/1128668-20171207153814019-842501799.png"
+img.onload = function(){
+　　
+cxt.drawImage(img,0,0,100,100);
+}
+}
+</script>
+
+</body>
+</html>

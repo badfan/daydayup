@@ -1,6 +1,5 @@
 package com.ff.study;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,14 +11,19 @@ import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.ff.adapter.ActivityAdapter;
+import com.ff.adapter.MainAdapter;
+import com.ff.common.BaseActivity;
 import com.ff.common.annotations.FFView;
 import com.ff.common.annotations.FFWork;
 import com.ff.common.arouter.ARouterService;
-import com.ff.common.arouter.module2.IModule2Path;
+import com.ff.common.recyclerview.BaseRecycleAdapter;
+import com.ff.common.recyclerview.DividerGridItemDecoration;
+import com.ff.common.utils.DensityUtil;
+import com.ff.common.widget.TitleBar;
+import com.ff.commonconfig.ActivityDesc;
+import com.ff.commonconfig.CommonPath;
 import com.ff.mvvm.DemoActivity;
-import com.ff.study.databinding.ActivityTestBinding;
-
-import org.greenrobot.eventbus.EventBus;
 
 import java.lang.reflect.Field;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -33,44 +37,48 @@ import java.util.concurrent.TimeUnit;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.databinding.ViewDataBinding;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 @Route(path = "/test/mainactivity")
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
 
+    @FFView(R.id.recyclerView)
+    RecyclerView recyclerView;
     @FFView(R.id.textView)
-    static TextView textView;
+    TextView textView;
+    @FFView(R.id.titleBar)
+    TitleBar titleBar;
+    private MainAdapter mAdapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_test);
-        DataBindingUtil.setContentView(this, R.layout.activity_test);
+    public void setContentLayout() {
+        DataBindingUtil.setContentView(this, R.layout.app_main);
         FFWork.inject(this);
         ARouter.getInstance().inject(this);
         ARouterService.getModule1Provider().sayHello("hello");
-
         hotFix();
     }
 
-    public void onClickView(View view) {
-        switch (view.getId()) {
-            case R.id.bt_module1:
-                ARouter.getInstance().build("/module1/module1activity").navigation();
-                String msg1 = ARouterService.getModule1Provider().sayHello("我是module1");
-                break;
-            case R.id.bt_module2:
-                ARouter.getInstance().build("/module2/module2activity").navigation();
-                String msg2 = ARouterService.getModule1Provider().sayHello("我是module2");
-                break;
-            case R.id.bt_mvvm:
-//                ARouter.getInstance().build("/module2/module2homeactivity").navigation();
-                startActivity(new Intent(this,DemoActivity.class));
-                break;
-        }
-
+    @Override
+    public void initView() {
+        titleBar.setTitle("首页");
+        mAdapter = new MainAdapter(this);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+        mAdapter.setItemList(CommonPath.actList);
+        recyclerView.setAdapter(mAdapter);
+        mAdapter.setOnItemClickListener(new BaseRecycleAdapter.OnRecyclerViewItemClickListener<ActivityDesc>() {
+            @Override
+            public void onItemClick(View view, ActivityDesc data, int position) {
+                ARouter.getInstance().build(data.path).navigation();
+                String msg1 = ARouterService.getModule1Provider().sayHello(data.title);
+            }
+        });
     }
+
 
     public void hotFix() {
         textView.setText("我是热更新,显示了代表成功1111111");
