@@ -21,6 +21,6 @@ public class WebActivity extends AppCompatActivity {
         ARouter.getInstance().inject(this);
         webView = findViewById(R.id.webView);
 
-        webView.loadUrl("file:///android_asset/issue/html/index.html");
+        webView.loadUrl("file:///android_asset/issue/html/line.html");
     }
 }

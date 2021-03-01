@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+
+<!--<canvas id="myCanvas" width="200" height="100" style="border:1px solid #c3c3c3;">-->
+    <!--Your browser does not support the canvas element.-->
+<!--</canvas>-->
+
+
+<h1>大标题</h1>
+
+<script type="text/javascript">
+alert("是否支持HTML5");
+var c=document.getElementById("myCanvas");
+if (!c.getContext) {
+    alert("不支持HTML5");
+    return;
+}
+
+var cxt=c.getContext("2d");
+cxt.moveTo(10,10);
+cxt.lineTo(150,50);
+cxt.lineTo(10,50);
+cxt.stroke();
+
+
+
+
+</script>
+<script type="text/javascript">
+
+    alert("你好");
+
+</script>
+
+</body>
+</html>

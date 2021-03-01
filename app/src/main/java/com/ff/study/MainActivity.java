@@ -1,7 +1,5 @@
 package com.ff.study;
 
-import android.content.Intent;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
@@ -11,19 +9,15 @@ import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.ff.adapter.ActivityAdapter;
 import com.ff.adapter.MainAdapter;
 import com.ff.common.BaseActivity;
 import com.ff.common.annotations.FFView;
 import com.ff.common.annotations.FFWork;
 import com.ff.common.arouter.ARouterService;
 import com.ff.common.recyclerview.BaseRecycleAdapter;
-import com.ff.common.recyclerview.DividerGridItemDecoration;
-import com.ff.common.utils.DensityUtil;
 import com.ff.common.widget.TitleBar;
 import com.ff.commonconfig.ActivityDesc;
 import com.ff.commonconfig.CommonPath;
-import com.ff.mvvm.DemoActivity;
 
 import java.lang.reflect.Field;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -35,7 +29,6 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;

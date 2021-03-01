@@ -53,7 +53,7 @@ public abstract class BaseActivity extends FragmentActivity {
         setContentLayout();
 //        ButterKnife.bind(this);
 //        AndroidBug5497Workaround.assistActivity(this);
-        initBinding();
+        initConfigs();
         initView();
         LogUtils.log("onCreateEnd-" + getClass().getName());
     }
@@ -92,8 +92,8 @@ public abstract class BaseActivity extends FragmentActivity {
     /**
      * 初始化binding,viewmodel
      */
-    protected void initBinding(){
-        LogUtil.log("mvvm架构使用");
+    protected void initConfigs(){
+        LogUtil.log("初始化框架");
     }
 
     /**

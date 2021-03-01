@@ -12,7 +12,7 @@ public class BaseUIObserver {
     MutableLiveData<String> finishEvent;
 
 
-    private <T> MutableLiveData<T> createLiveData(MutableLiveData<T> liveData) {
+    public  <T> MutableLiveData<T> createLiveData(MutableLiveData<T> liveData) {
         if (liveData == null) {
             liveData = new MutableLiveData<>();
         }
