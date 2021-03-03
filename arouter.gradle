@@ -1,8 +1,10 @@
 ext {
     router = [
+//            是否组件化,true是,false否
             Module1Componentization: false,
             Module2Componentization: false,
             WebComponentization: false,
-            BluetoothComponentization: true
+            BluetoothComponentization: true,
+            SoftinputComponentization: false
     ]
 }

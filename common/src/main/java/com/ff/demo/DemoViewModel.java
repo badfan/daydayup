@@ -11,6 +11,7 @@ public class DemoViewModel extends BaseViewModel<DemoUIObserver> {
 
     public DemoViewModel(@NonNull Application application) {
         super(application);
+        doTestRequest();
     }
 
     public void doTestRequest() {

@@ -11,7 +11,7 @@ import java.lang.reflect.Type;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 
-public class BaseViewModel<U extends BaseUIObserver> extends AndroidViewModel {
+public class BaseViewModel<U extends BaseUIObserver> extends AndroidViewModel implements IBaseViewModel {
 
     private U mUIOB;
 
@@ -54,5 +54,35 @@ public class BaseViewModel<U extends BaseUIObserver> extends AndroidViewModel {
 
     public void dismissDialog() {
         getUIOB().getDismissDialogEvent().postValue(null);
+    }
+
+    @Override
+    public void onCreate() {
+        LogUtil.log("viewModel-[onCreate]");
+    }
+
+    @Override
+    public void onResume() {
+        LogUtil.log("viewModel-[onCreate]");
+    }
+
+    @Override
+    public void onPause() {
+        LogUtil.log("viewModel-[onPause]");
+    }
+
+    @Override
+    public void onStart() {
+        LogUtil.log("viewModel-[onStart]");
+    }
+
+    @Override
+    public void onStop() {
+        LogUtil.log("viewModel-[onStop]");
+    }
+
+    @Override
+    public void onDestroy() {
+        LogUtil.log("viewModel-[onDestroy]");
     }
 }

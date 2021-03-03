@@ -2,8 +2,6 @@ package com.ff.softinput;
 
 import android.content.Context;
 import android.graphics.PointF;
-import android.text.Editable;
-import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -16,10 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ff.audiorecord.AudioRecorder2;
-import com.ff.common.annotations.FFView;
-import com.ff.common.annotations.FFWork;
-import com.ff.common.utils.CommonUtil;
-import com.ff.common.utils.LogUtils;
 
 
 public class InputView extends LinearLayout implements View.OnClickListener {
@@ -75,7 +69,7 @@ public class InputView extends LinearLayout implements View.OnClickListener {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_SEND) {
-                    LogUtils.log("onEditorAction=" + actionId);
+                    Log.e(TAG,"onEditorAction=" + actionId);
                     String msg = v.getText().toString().trim();
                     sendMsg(msg);
                 }
@@ -85,7 +79,7 @@ public class InputView extends LinearLayout implements View.OnClickListener {
         AndroidBug5497Workaround.setOnKeyboardListener(new AndroidBug5497Workaround.OnKeyboardListener() {
             @Override
             public void status(boolean isShow) {
-                LogUtils.log("键盘弹出状态=" + isShow);
+                Log.e(TAG,"键盘弹出状态=" + isShow);
                 if (isShow) {
                     layoutInputAudio.setVisibility(View.GONE);
                     tvReply.setVisibility(View.VISIBLE);
@@ -135,7 +129,7 @@ public class InputView extends LinearLayout implements View.OnClickListener {
         editText.setText("");
         layoutType = LayoutType.NORMAL;
         showLayout(layoutType);
-        CommonUtil.closeSoftKeyboard(ct, editText);
+//        CommonUtil.closeSoftKeyboard(ct, editText);
     }
 
     @Override
@@ -165,7 +159,7 @@ public class InputView extends LinearLayout implements View.OnClickListener {
         } else if (i == R.id.tv_audio) {
             layoutType = LayoutType.AUDIO;
             showLayout(layoutType);
-            CommonUtil.closeSoftKeyboard(ct, editText);
+//            CommonUtil.closeSoftKeyboard(ct, editText);
 
         } else if (i == R.id.tv_cancel) {
             layoutType = LayoutType.NORMAL;
@@ -330,7 +324,7 @@ public class InputView extends LinearLayout implements View.OnClickListener {
     }
 
     private void sendMsg(String msg) {
-        LogUtils.log("inputView", "msg=" + msg);
+        Log.e( "inputView", "msg=" + msg);
         editText.setText("");
         if (callBack != null) {
             callBack.onSendMsg(msg);

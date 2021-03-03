@@ -2,11 +2,10 @@ package com.ff.softinput;
 
 import android.app.Activity;
 import android.graphics.Rect;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
-
-import com.ff.common.utils.LogUtils;
 
 
 public class AndroidBug5497Workaround {
@@ -39,7 +38,7 @@ public class AndroidBug5497Workaround {
         if (usableHeightNow != usableHeightPrevious) {
             int usableHeightSansKeyboard = mChildOfContent.getRootView().getHeight();
             int heightDifference = usableHeightSansKeyboard - usableHeightNow;
-            LogUtils.log("usableHeightNow=" + usableHeightNow + ",usableHeightSansKeyboard=" + usableHeightSansKeyboard + ",heightDifference=" + heightDifference);
+            Log.e("callback","usableHeightNow=" + usableHeightNow + ",usableHeightSansKeyboard=" + usableHeightSansKeyboard + ",heightDifference=" + heightDifference);
             if (heightDifference > (usableHeightSansKeyboard / 4)) {
                 // keyboard probably just became visible
                 frameLayoutParams.height = usableHeightSansKeyboard - heightDifference;

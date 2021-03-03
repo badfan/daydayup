@@ -2,14 +2,15 @@ package com.ff.demo;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.ff.common.BR;
 import com.ff.common.R;
 import com.ff.common.databinding.ActivityDemoBinding;
-import com.ff.common.utils.LogUtil;
+import com.ff.commonconfig.CommonPath;
 import com.ff.mvvm.base.MVVMActivity;
 
 import androidx.lifecycle.Observer;
 
-@Route(path = "/common/demoactivity")
+@Route(path = CommonPath.DEMOACTIVITY)
 public class DemoActivity extends MVVMActivity<ActivityDemoBinding, DemoViewModel> {
 
     @Override
@@ -18,24 +19,25 @@ public class DemoActivity extends MVVMActivity<ActivityDemoBinding, DemoViewMode
     }
 
     @Override
-    public void initView() {
-        getViewModel().showDialog();
-        getMainHandler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                getViewModel().dismissDialog();
-            }
-        }, 2000);
+    protected int getViewModelId() {
+        return BR.model;
+    }
 
-        getViewModel().doTest();
+    @Override
+    public void initData() {
 
+        ARouter.getInstance().inject(this);
+    }
+
+
+    @Override
+    protected void initViewObserver() {
         getViewModel().getUIOB().getLoadWebEvent().observe(this, new Observer<String>() {
             @Override
             public void onChanged(String s) {
-                showToast("");
+                showToast(s);
             }
         });
     }
-
 
 }

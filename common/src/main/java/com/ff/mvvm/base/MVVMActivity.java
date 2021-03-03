@@ -31,11 +31,12 @@ public abstract class MVVMActivity<V extends ViewDataBinding, VM extends BaseVie
     }
 
     @Override
-    protected void initConfigs() {
-        super.initConfigs();
-        initViewModel();
+    protected void initView() {
+        super.initView();
         initDataBinding();
-        initUIObeerver();
+        initViewModel();
+        registerViewObserver();
+        initViewObserver();
     }
 
     protected VM getViewModel() {
@@ -55,7 +56,12 @@ public abstract class MVVMActivity<V extends ViewDataBinding, VM extends BaseVie
         //这里如果没有泛型参数,viewModel转换异常
         viewModel = (VM) createViewModel(this, modelClass);
         LogUtil.log("viewModel初始化成功:" + viewModel.getClass().getName());
+        dataBinding.setVariable(getViewModelId(), getViewModel());
+        dataBinding.setLifecycleOwner(this);
+        getLifecycle().addObserver(viewModel);
     }
+
+    protected abstract int getViewModelId();
 
     private ViewModel createViewModel(FragmentActivity activity, Class viewModelClass) {
         return ViewModelProviders.of(activity).get(viewModelClass);
@@ -68,9 +74,14 @@ public abstract class MVVMActivity<V extends ViewDataBinding, VM extends BaseVie
 
     protected abstract int creatLayoutId();
 
-    private void initUIObeerver() {
+    protected abstract void initViewObserver();
+
+    private void registerViewObserver() {
+        if (viewModel == null) {
+            throw new RuntimeException("registerViewObserver failed,please viewModel init first");
+        }
         viewModel.getUIOB().getShowDialogEvent().observe(this, s -> {
-            showToast( "showdialog");
+            showToast("showdialog");
             showProgressDialog(s);
         });
         viewModel.getUIOB().getDismissDialogEvent().observe(this, aVoid -> {
