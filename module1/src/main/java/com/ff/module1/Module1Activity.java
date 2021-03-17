@@ -1,20 +1,12 @@
 package com.ff.module1;
 
 import android.content.Context;
-import android.content.Intent;
-import android.hardware.input.InputManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.text.InputType;
-import android.util.TimeUtils;
 import android.view.MotionEvent;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -22,7 +14,6 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.alibaba.android.arouter.thread.DefaultThreadFactory;
 import com.ff.common.utils.LogUtils;
 import com.ff.commonconfig.CommonPath;
-import com.ff.module2.R;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -36,8 +27,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
 import androidx.appcompat.app.AppCompatActivity;
-import dalvik.system.BaseDexClassLoader;
-import dalvik.system.PathClassLoader;
 
 @Route(path = CommonPath.MODULE1ACTIVITY)
 public class Module1Activity extends AppCompatActivity {

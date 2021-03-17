@@ -12,14 +12,14 @@ import com.ff.study.R
 class ActivityAdapter(private var ct: Context) : BaseAdapter() {
 
 
-    private lateinit var mItemList: List<String>
+    private var mItemList: List<String>? = null
 
     public fun setItemList(list: List<String>) {
         mItemList = list
     }
 
     override fun getCount(): Int {
-        return if (mItemList == null) 0 else mItemList.size
+        return if (mItemList == null) 0 else mItemList!!.size
     }
 
     override fun getItem(position: Int): Any? {
@@ -41,7 +41,7 @@ class ActivityAdapter(private var ct: Context) : BaseAdapter() {
             holder = convertView.tag as ViewHolder
         }
         holder.tv_name.text = "你好"
-        return null
+        return view
     }
 
     class ViewHolder {

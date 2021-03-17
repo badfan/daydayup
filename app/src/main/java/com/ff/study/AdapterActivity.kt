@@ -47,7 +47,7 @@ class AdapterActivity : AppCompatActivity() {
     class Teacher {
         companion object {
 
-            private lateinit var instance: Teacher
+            private var instance: Teacher? = null
 
             fun newInstance(): Teacher {
                 if (instance == null) {
