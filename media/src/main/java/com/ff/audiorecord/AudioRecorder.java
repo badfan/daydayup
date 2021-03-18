@@ -21,6 +21,9 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * 自定义录音pcm
+ */
 public class AudioRecorder {
     private static final String TAG = "AudioRecordView";
 

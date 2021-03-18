@@ -30,6 +30,12 @@ import java.util.concurrent.Executors;
 
 import androidx.annotation.RequiresApi;
 
+/**
+ * @author Victor
+ * @desc 调用三方库implementation 'com.github.zhaolewei:ZlwAudioRecorder:v1.07'
+ * 录音pcm文件
+ * @time 2021/3/18
+ */
 public class AudioRecorder2 {
     private static final String TAG = "AudioRecordView";
 
@@ -108,7 +114,7 @@ public class AudioRecorder2 {
     public void stopRecordWidthResult() {
 
         Log.e(TAG, "stopRecordWidthResult:");
-        if(isAudioRecording()) {
+        if (isAudioRecording()) {
             stopRecord();
         }
     }
@@ -137,7 +143,7 @@ public class AudioRecorder2 {
                 try {
                     throw new Exception("requestPermission中context需要Activity类型,而接受的是" + ct.getClass().getTypeName());
                 } catch (Exception e) {
-                    Log.e(TAG,"", e);
+                    Log.e(TAG, "", e);
                 }
             }
         }
