@@ -1,1 +1,2 @@
+include ':test'
 include ':app', ':startup', ':common', ':module1', ':softinput', ':web', ':commonconfig', ':bluetooth', 'module2',":media"

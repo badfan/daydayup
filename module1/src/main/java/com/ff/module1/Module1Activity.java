@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.alibaba.android.arouter.thread.DefaultThreadFactory;
+import com.ff.common.arouter.ARouterActivity;
 import com.ff.common.utils.LogUtils;
 import com.ff.commonconfig.CommonPath;
 
@@ -29,14 +30,14 @@ import java.util.concurrent.locks.ReentrantLock;
 import androidx.appcompat.app.AppCompatActivity;
 
 @Route(path = CommonPath.MODULE1ACTIVITY)
-public class Module1Activity extends AppCompatActivity {
+public class Module1Activity extends ARouterActivity {
 
 
     EditText editText;
     TextView textView;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void setContentLayout() {
         setContentView(R.layout.activity_module1);
         ARouter.getInstance().inject(this);
 
@@ -115,5 +116,11 @@ public class Module1Activity extends AppCompatActivity {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         return super.onTouchEvent(event);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 }

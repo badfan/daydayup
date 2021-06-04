@@ -2,6 +2,8 @@ package com.ff.study;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
 import static org.junit.Assert.*;
@@ -38,5 +40,16 @@ public class ExampleUnitTest {
             });
             thread1.start();
         }
+    }
+
+
+    public void test(){
+//        List<Object> list1 = new ArrayList<Integer>();
+        List<? super Object> list = new ArrayList<>();
+//        list.add(123);
+        list.add("aaa");
+
+        Object s = list.get(1);
+        Object obj = list.get(0);
     }
 }

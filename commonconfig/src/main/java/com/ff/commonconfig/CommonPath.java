@@ -20,7 +20,8 @@ public class CommonPath {
         actList.add(new ActivityDesc(1, "Module1Activity", MODULE1ACTIVITY, "module1", "module1相关功能"));
         actList.add(new ActivityDesc(2, "Module2Activity", MODULE2ACTIVITY, "module2", "module2相关功能"));
         actList.add(new ActivityDesc(3, "WebActivity", WEBACTIVITY, "web,h5", "android下h5的功能实践"));
-        actList.add(new ActivityDesc(4, "DemoActivity", DEMOACTIVITY, "mvvm框架实践", "mvvm框架实践"));
+//        actList.add(new ActivityDesc(4, "DemoActivity", DEMOACTIVITY, "mvvm框架实践", "mvvm框架实践"));
+        actList.add(new ActivityDesc(4, "DemoActivity", "/test/TextMainActivity", "mvvm框架实践", "mvvm框架实践"));
     }
 
 

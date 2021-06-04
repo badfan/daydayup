@@ -1,13 +1,8 @@
 package com.ff.mvvm.base;
 
-import android.os.Bundle;
-import android.widget.Toast;
-
-import com.ff.common.BaseActivity;
 import com.ff.common.arouter.ARouterActivity;
 import com.ff.common.utils.LogUtil;
 import com.ff.common.utils.LogUtils;
-import com.ff.common.utils.ToastUtil;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -15,9 +10,9 @@ import java.lang.reflect.Type;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.FragmentActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelStore;
 
 
 public abstract class MVVMActivity<V extends ViewDataBinding, VM extends BaseViewModel> extends ARouterActivity {
@@ -64,7 +59,7 @@ public abstract class MVVMActivity<V extends ViewDataBinding, VM extends BaseVie
     protected abstract int getViewModelId();
 
     private ViewModel createViewModel(FragmentActivity activity, Class viewModelClass) {
-        return ViewModelProviders.of(activity).get(viewModelClass);
+        return new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication())).get(viewModelClass);
     }
 
     protected void initDataBinding() {

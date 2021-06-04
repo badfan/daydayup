@@ -15,6 +15,7 @@
         android:layout_height="match_parent">
 
         <Button
+            android:id="@+id/btn_loadweb"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{()->model.loadWeb()}"
@@ -22,6 +23,33 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@{model.demoEntry.name}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="@id/btn_loadweb"
+            app:layout_constraintTop_toBottomOf="@+id/btn_loadweb" />
+
+        <TextView
+            android:id="@+id/tv_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@{model.demoEntry.sex}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+
+        <TextView
+            android:id="@+id/tv_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@{model.demoEntry.age}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_sex" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -26,7 +26,6 @@ public class DemoActivity extends MVVMActivity<ActivityDemoBinding, DemoViewMode
     @Override
     public void initData() {
 
-        ARouter.getInstance().inject(this);
     }
 
 
